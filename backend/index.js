@@ -17,3 +17,11 @@ app.listen(process.env.PORT, () => {
 app.get('/',(req,res) => {
     res.send('Hello from Express')
 })
+
+app.get('/about', (req,res) => {
+    res.json({ name: "Sanjana", role: "Fullstack Developer" })
+})
+
+app.get('/health', (req,res) => {
+    res.json({ status: "ok" })
+})
