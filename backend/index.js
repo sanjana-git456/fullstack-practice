@@ -10,9 +10,6 @@ const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.log('MongoDB connection error: ', err))
-app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}`)
-})
 
 app.get('/',(req,res) => {
     res.send('Hello from Express')
@@ -24,4 +21,12 @@ app.get('/about', (req,res) => {
 
 app.get('/health', (req,res) => {
     res.json({ status: "ok" })
+})
+
+app.get('/user/:id', (req,res) => {
+    res.json({ userId: req.params.id })
+})
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`)
 })
