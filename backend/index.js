@@ -31,6 +31,10 @@ app.get('/search', (req,res) => {
     res.json({ searchedFor: req.query.name })
 })
 
+app.post('/login', (req,res) => {
+    res.json({ message: `Welcome, ${req.body.username}` })
+})
+
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 })
